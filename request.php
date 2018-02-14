@@ -64,10 +64,10 @@
 				exit();
 			}
 
-			$bitcoin = new jsonRPCClient('http://127.0.0.1:32323/json_rpc');
+			$bitcoin = new jsonRPCClient('http://127.0.0.1:8070/json_rpc');
 			$balance = $bitcoin->getbalance();
 			$balanceDisponible = $balance['available_balance'];
-			$transactionFee = 100000000;
+			$transactionFee = 400000000;
 			$dividirEntre = 1000000000000;
 			$hasta = number_format(round($balanceDisponible/$dividirEntre,12),2,'.', '');
 
@@ -91,7 +91,7 @@
 				"destinations" => $destination,
 				"payment_id"=> $paymentID, 
 				"fee" => $transactionFee, 
-				"mixin"=>1, // need to increase mixin later
+				"mixin"=>3, // need to increase mixin later
 				"unlock_time" => 0
 				);
 				//print_r($peticion);
